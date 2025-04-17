@@ -14,9 +14,3 @@ let count = 0, index = 0, currentText = '', letter = '';
     setTimeout(type, 100);
   }
 })();
-
-// Dark Mode Toggle
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-

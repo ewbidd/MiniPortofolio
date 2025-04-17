@@ -40,19 +40,16 @@ body.dark-mode header {
 
 .project-card {
     background-color: #1a1a2e;
+    background-image: radial-gradient(ellipse 100% 80% at 50% 0%,
+            #1a1a2e,
+            #0f3460);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s ease;
 }
 
-body.dark-mode .project-card {
-    background-color: #f8f9fa;
-    /* warna terang */
-    color: #212529;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .project-card:hover {
-    transform: scale(1.05);
-    background-color: #252542;
+    transform: scale(1.02);
 }
 
 .timeline::before {
