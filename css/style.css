@@ -1,9 +1,9 @@
 body {
-    background-color: #0d0d0d;
+    margin: 0;
+    scroll-behavior: smooth;
+    background: #0d0d0d;
     color: #e0e0e0;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-    margin: 0;
 }
 
 header {
@@ -12,25 +12,13 @@ header {
     z-index: 1000;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    /* default untuk light mode */
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Saat dark mode */
-body.dark-mode header {
-    background-color: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bg-gradient {
     z-index: -2;
-    background-color: #0a0a0a;
-    /* bg-neutral-950 ≈ #0a0a0a */
-    background-image: radial-gradient(ellipse 80% 80% at 50% -20%,
-            rgba(120, 119, 198, 0.3),
-            rgba(255, 255, 255, 0));
+    background: #0a0a0a radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), transparent);
 }
 
 .section-full {
@@ -39,10 +27,8 @@ body.dark-mode header {
 }
 
 .project-card {
-    background-color: #1a1a2e;
-    background-image: radial-gradient(ellipse 100% 80% at 50% 0%,
-            #1a1a2e,
-            #0f3460);
+    background: radial-gradient(ellipse 100% 80% at 50% 0%,
+            #1a1a2e, #0f3460);
     color: #f1f1f1;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s ease;
@@ -52,40 +38,54 @@ body.dark-mode header {
     transform: scale(1.02);
 }
 
-.timeline::before {
-    content: '';
+.neon-glow {
+    overflow: hidden;
+}
+
+.neon-glow::after {
+    content: "";
     position: absolute;
-    left: 20px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: #555;
+    bottom: 0;
+    left: -5%;
+    height: 1px;
+    width: 110%;
+    background: linear-gradient(90deg,
+            #00f0ff 0%,
+            #00d4ff 5%,
+            #00b8ff 10%,
+            #009cff 15%,
+            #5a6cff 20%,
+            #9955ff 25%,
+            #cc44ff 30%,
+            #ff33cc 35%,
+            #ff6699 40%,
+            #ff9966 45%,
+            #ffcc33 50%,
+            #ffcc33 55%,
+            #ff9966 60%,
+            #ff6699 65%,
+            #ff33cc 70%,
+            #cc44ff 75%,
+            #9955ff 80%,
+            #5a6cff 85%,
+            #009cff 90%,
+            #00b8ff 95%,
+            #00f0ff 100%);
+    background-size: 500% 100%;
+    animation: borderGlow 50s linear infinite;
+    pointer-events: none;
+    border-radius: 5px;
+    box-shadow:
+    0 2px 15px rgba(0, 240, 255, 0.5),
+    0 4px 25px rgba(0, 240, 255, 0.3);
 }
 
-.timeline-item {
-    position: relative;
-    padding-left: 40px;
-    margin-bottom: 1.5rem;
-}
+@keyframes borderGlow {
+    0% {
+        background-position: 0% 50%;
+    }
 
-.timeline-item::before {
-    content: '🔹';
-    position: absolute;
-    left: 10px;
-    top: 0;
-}
-
-.dark-mode {
-    background-color: #f0f0f0 !important;
-    color: #111 !important;
-}
-
-.background-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100vh;
-    transition: all 0.5s ease;
+    100% {
+        background-position: 500% 50%;
+    }
 }
