@@ -29,3 +29,16 @@ let letter = "";
 
   setTimeout(type, delay);
 })();
+
+const thumb = document.getElementById('thumb');
+const body = document.body;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const scrollHeight = body.scrollHeight - window.innerHeight;
+  const thumbHeight = 80;
+  const trackHeight = window.innerHeight - thumbHeight;
+
+  const top = (scrollTop / scrollHeight) * trackHeight;
+  thumb.style.top = `${top}px`;
+});
