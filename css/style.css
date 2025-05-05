@@ -28,14 +28,16 @@ header {
 
 .project-card {
   background: radial-gradient(ellipse 100% 80% at 50% 0%,
-      #1a1a2e, #0f3460);
+      #00fff7, #e685f1);
   color: #f1f1f1;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: 0.3s ease;
+  transition: 0.3s ease-in-out;
+  color: black;
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  background: black;
+  color: white;
 }
 
 .neon-glow {
